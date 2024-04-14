@@ -31,6 +31,7 @@ on:
           - 'd-team_newifi-d2'
           - 'p2w_r619ac-128m'
           - 'phicomm_k2p'
+          - 'n1'
           - 'x86_32'
           - 'x86_64'
           - 'xiaomi_mi-router-4a-gigabit'
@@ -63,34 +64,34 @@ on:
         type: boolean
       UPLOAD_FIRMWARE:
         description: '上传固件到 Github Artifacts'
-        required: false
+        required: true
         default: 'true'
         type: boolean
       UPLOAD_RELEASE:
         description: '发布固件到 Github Releases'
-        required: false
-        default: 'false'
+        required: true
+        default: 'true'
         type: boolean
       CACHEWRTBUILD_SWITCH:
         description: '缓存加速编译'
-        required: false
+        required: true
         default: 'true'
         type: boolean
       UPDATE_FIRMWARE_ONLINE:
         description: '增加在线更新固件功能/自动打包Amlogic_Rockchip系列固件'
-        required: false
+        required: true
         default: 'true'
         type: boolean
       COMPILATION_INFORMATION:
         description: '是否显示编译信息'
-        required: false
+        required: true
         default: 'true'
         type: boolean
 
 
 # 定时触发开启开始编译(把下面两个#去掉开启,时间设置请看定时开启编译说明)
-#  schedule:
-#   - cron: 35 18 * * *
+  schedule:
+   - cron: 35 8 * * *
 
 env:
   GITHUB_LINK: https://github.com/${{github.repository}}
